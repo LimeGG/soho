@@ -3,6 +3,9 @@ package main
 import (
 	"fmt"
 	"net/http"
+	game "soho/web/app"
+	task "soho/web/app"
+	user "soho/web/app"
 )
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
@@ -10,10 +13,7 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/", helloHandler)
-
-	err := http.ListenAndServe(":8080", nil)
-	if err != nil {
-		fmt.Println(err)
-	}
+	user.User_main()
+	game.Game_main()
+	task.Task_main()
 }
